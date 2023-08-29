@@ -1,4 +1,4 @@
-# AWS EKS <$addon-name> Terraform module
+# AWS EKS gitlab-pipeline-exporter Terraform module
 
 [<img src="https://lablabs.io/static/ll-logo.png" width=350px>](https://lablabs.io/)
 
@@ -6,12 +6,12 @@ We help companies build, run, deploy and scale software and infrastructure by em
 
 ---
 
-[![Terraform validate](https://github.com/lablabs/terraform-aws-eks-<$addon-name>/actions/workflows/validate.yaml/badge.svg)](https://github.com/lablabs/terraform-aws-eks-<$addon-name>/actions/workflows/validate.yaml)
-[![pre-commit](https://github.com/lablabs/terraform-aws-eks-<$addon-name>/actions/workflows/pre-commit.yml/badge.svg)](https://github.com/lablabs/terraform-aws-eks-<$addon-name>/actions/workflows/pre-commit.yml)
+[![Terraform validate](https://github.com/lablabs/terraform-aws-eks-gitlab-pipeline-exporter/actions/workflows/validate.yaml/badge.svg)](https://github.com/lablabs/terraform-aws-eks-gitlab-pipeline-exporter/actions/workflows/validate.yaml)
+[![pre-commit](https://github.com/lablabs/terraform-aws-eks-gitlab-pipeline-exporter/actions/workflows/pre-commit.yml/badge.svg)](https://github.com/lablabs/terraform-aws-eks-gitlab-pipeline-exporter/actions/workflows/pre-commit.yml)
 
 ## Description
 
-A Terraform module to deploy the <$addon-name> on Amazon EKS cluster.
+A Terraform module to deploy the gitlab-pipeline-exporter on Amazon EKS cluster.
 
 ## Related Projects
 
@@ -109,7 +109,7 @@ No modules.
 | <a name="input_aws_partition"></a> [aws\_partition](#input\_aws\_partition) | AWS partition in which the resources are located. Avaliable values are `aws`, `aws-cn`, `aws-us-gov` | `string` | `"aws"` | no |
 | <a name="input_enabled"></a> [enabled](#input\_enabled) | Variable indicating whether deployment is enabled | `bool` | `true` | no |
 | <a name="input_helm_atomic"></a> [helm\_atomic](#input\_helm\_atomic) | If set, installation process purges chart on fail. The wait flag will be set automatically if atomic is used | `bool` | `false` | no |
-| <a name="input_helm_chart_name"></a> [helm\_chart\_name](#input\_helm\_chart\_name) | Helm chart name to be installed | `string` | `"<$addon-name>"` | no |
+| <a name="input_helm_chart_name"></a> [helm\_chart\_name](#input\_helm\_chart\_name) | Helm chart name to be installed | `string` | `"gitlab-pipeline-exporter"` | no |
 | <a name="input_helm_chart_version"></a> [helm\_chart\_version](#input\_helm\_chart\_version) | Version of the Helm chart | `string` | `"<helm_chart_version>"` | no |
 | <a name="input_helm_cleanup_on_fail"></a> [helm\_cleanup\_on\_fail](#input\_helm\_cleanup\_on\_fail) | Allow deletion of new resources created in this helm upgrade when upgrade fails | `bool` | `false` | no |
 | <a name="input_helm_create_namespace"></a> [helm\_create\_namespace](#input\_helm\_create\_namespace) | Create the namespace if it does not yet exist | `bool` | `true` | no |
@@ -125,7 +125,7 @@ No modules.
 | <a name="input_helm_postrender"></a> [helm\_postrender](#input\_helm\_postrender) | Value block with a path to a binary file to run after helm renders the manifest which can alter the manifest contents | `map(any)` | `{}` | no |
 | <a name="input_helm_recreate_pods"></a> [helm\_recreate\_pods](#input\_helm\_recreate\_pods) | Perform pods restart during helm upgrade/rollback | `bool` | `false` | no |
 | <a name="input_helm_release_max_history"></a> [helm\_release\_max\_history](#input\_helm\_release\_max\_history) | Maximum number of release versions stored per release | `number` | `0` | no |
-| <a name="input_helm_release_name"></a> [helm\_release\_name](#input\_helm\_release\_name) | Helm release name | `string` | `"<$addon-name>"` | no |
+| <a name="input_helm_release_name"></a> [helm\_release\_name](#input\_helm\_release\_name) | Helm release name | `string` | `"gitlab-pipeline-exporter"` | no |
 | <a name="input_helm_render_subchart_notes"></a> [helm\_render\_subchart\_notes](#input\_helm\_render\_subchart\_notes) | If set, render helm subchart notes along with the parent | `bool` | `true` | no |
 | <a name="input_helm_replace"></a> [helm\_replace](#input\_helm\_replace) | Re-use the given name of helm release, only if that name is a deleted release which remains in the history. This is unsafe in production | `bool` | `false` | no |
 | <a name="input_helm_repo_ca_file"></a> [helm\_repo\_ca\_file](#input\_helm\_repo\_ca\_file) | Helm repositories cert file | `string` | `""` | no |
@@ -146,14 +146,14 @@ No modules.
 | <a name="input_irsa_assume_role_enabled"></a> [irsa\_assume\_role\_enabled](#input\_irsa\_assume\_role\_enabled) | Whether IRSA is allowed to assume role defined by irsa\_assume\_role\_arn. | `bool` | `false` | no |
 | <a name="input_irsa_policy_enabled"></a> [irsa\_policy\_enabled](#input\_irsa\_policy\_enabled) | Whether to create opinionated policy to allow operations on specified zones in `policy_allowed_zone_ids`. | `bool` | `true` | no |
 | <a name="input_irsa_role_create"></a> [irsa\_role\_create](#input\_irsa\_role\_create) | Whether to create IRSA role and annotate service account | `bool` | `true` | no |
-| <a name="input_irsa_role_name_prefix"></a> [irsa\_role\_name\_prefix](#input\_irsa\_role\_name\_prefix) | The IRSA role name prefix for <$addon-name> | `string` | `"<$addon-name>-irsa"` | no |
+| <a name="input_irsa_role_name_prefix"></a> [irsa\_role\_name\_prefix](#input\_irsa\_role\_name\_prefix) | The IRSA role name prefix for gitlab-pipeline-exporter | `string` | `"gitlab-pipeline-exporter-irsa"` | no |
 | <a name="input_irsa_tags"></a> [irsa\_tags](#input\_irsa\_tags) | IRSA resources tags | `map(string)` | `{}` | no |
-| <a name="input_namespace"></a> [namespace](#input\_namespace) | The K8s namespace in which the <$addon-name> service account has been created | `string` | `"<$addon-name>"` | no |
+| <a name="input_namespace"></a> [namespace](#input\_namespace) | The K8s namespace in which the gitlab-pipeline-exporter service account has been created | `string` | `"gitlab-pipeline-exporter"` | no |
 | <a name="input_rbac_create"></a> [rbac\_create](#input\_rbac\_create) | Whether to create and use RBAC resources | `bool` | `true` | no |
 | <a name="input_service_account_create"></a> [service\_account\_create](#input\_service\_account\_create) | Whether to create Service Account | `bool` | `true` | no |
-| <a name="input_service_account_name"></a> [service\_account\_name](#input\_service\_account\_name) | The k8s <$addon-name> service account name | `string` | `"<$addon-name>"` | no |
-| <a name="input_settings"></a> [settings](#input\_settings) | Additional helm sets which will be passed to the Helm chart values, see https://hub.helm.sh/charts/stable/<$addon-name> | `map(any)` | `{}` | no |
-| <a name="input_values"></a> [values](#input\_values) | Additional yaml encoded values which will be passed to the Helm chart, see https://hub.helm.sh/charts/stable/<$addon-name> | `string` | `""` | no |
+| <a name="input_service_account_name"></a> [service\_account\_name](#input\_service\_account\_name) | The k8s gitlab-pipeline-exporter service account name | `string` | `"gitlab-pipeline-exporter"` | no |
+| <a name="input_settings"></a> [settings](#input\_settings) | Additional helm sets which will be passed to the Helm chart values, see https://hub.helm.sh/charts/stable/gitlab-pipeline-exporter | `map(any)` | `{}` | no |
+| <a name="input_values"></a> [values](#input\_values) | Additional yaml encoded values which will be passed to the Helm chart, see https://hub.helm.sh/charts/stable/gitlab-pipeline-exporter | `string` | `""` | no |
 
 ## Outputs
 
@@ -161,7 +161,7 @@ No modules.
 |------|-------------|
 | <a name="output_helm_release_application_metadata"></a> [helm\_release\_application\_metadata](#output\_helm\_release\_application\_metadata) | Argo application helm release attributes |
 | <a name="output_helm_release_metadata"></a> [helm\_release\_metadata](#output\_helm\_release\_metadata) | Helm release attributes |
-| <a name="output_iam_role_attributes"></a> [iam\_role\_attributes](#output\_iam\_role\_attributes) | <$addon-name> IAM role atributes |
+| <a name="output_iam_role_attributes"></a> [iam\_role\_attributes](#output\_iam\_role\_attributes) | gitlab-pipeline-exporter IAM role atributes |
 | <a name="output_kubernetes_application_attributes"></a> [kubernetes\_application\_attributes](#output\_kubernetes\_application\_attributes) | Argo kubernetes manifest attributes |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

@@ -18,25 +18,25 @@ variable "cluster_identity_oidc_issuer_arn" {
 
 variable "helm_chart_name" {
   type        = string
-  default     = "<$addon-name>"
+  default     = "gitlab-ci-pipelines-exporter"
   description = "Helm chart name to be installed"
 }
 
 variable "helm_chart_version" {
   type        = string
-  default     = "<helm_chart_version>"
+  default     = "0.3.1"
   description = "Version of the Helm chart"
 }
 
 variable "helm_release_name" {
   type        = string
-  default     = "<$addon-name>"
+  default     = "gitlab-pipeline-exporter"
   description = "Helm release name"
 }
 
 variable "helm_repo_url" {
   type        = string
-  default     = "<helm_repo_url>"
+  default     = "https://charts.visonneau.fr"
   description = "Helm repository"
 }
 
@@ -48,20 +48,20 @@ variable "helm_create_namespace" {
 
 variable "namespace" {
   type        = string
-  default     = "<$addon-name>"
-  description = "The K8s namespace in which the <$addon-name> service account has been created"
+  default     = "gitlab-exporter"
+  description = "The K8s namespace in which the gitlab-pipeline-exporter service account has been created"
 }
 
 variable "settings" {
   type        = map(any)
   default     = {}
-  description = "Additional helm sets which will be passed to the Helm chart values, see https://hub.helm.sh/charts/stable/<$addon-name>"
+  description = "Additional helm sets which will be passed to the Helm chart values, see https://github.com/mvisonneau/helm-charts/blob/main/charts/gitlab-ci-pipelines-exporter/values.yaml"
 }
 
 variable "values" {
   type        = string
   default     = ""
-  description = "Additional yaml encoded values which will be passed to the Helm chart, see https://hub.helm.sh/charts/stable/<$addon-name>"
+  description = "Additional yaml encoded values which will be passed to the Helm chart, see https://github.com/mvisonneau/helm-charts/blob/main/charts/gitlab-ci-pipelines-exporter/values.yaml"
 }
 
 # ================ IRSA variables (optional) ================
@@ -80,8 +80,8 @@ variable "service_account_create" {
 
 variable "service_account_name" {
   type        = string
-  default     = "<$addon-name>"
-  description = "The k8s <$addon-name> service account name"
+  default     = "gitlab-pipeline-exporter"
+  description = "The k8s gitlab-pipeline-exporter service account name"
 }
 
 variable "irsa_role_create" {
@@ -116,8 +116,8 @@ variable "irsa_additional_policies" {
 
 variable "irsa_role_name_prefix" {
   type        = string
-  default     = "<$addon-name>-irsa"
-  description = "The IRSA role name prefix for <$addon-name>"
+  default     = "gitlab-pipeline-exporter-irsa"
+  description = "The IRSA role name prefix for gitlab-pipeline-exporter"
 }
 
 variable "irsa_tags" {

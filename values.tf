@@ -1,6 +1,14 @@
 locals {
   values_default = yamlencode({
-    # add default values here
+    "resources" : {
+      "requests" : {
+        "cpu" : "150m"
+        "memory" : "64Mi"
+      }
+    }
+    "serviceMonitor" : {
+      "enabled" : true
+    }
   })
 }
 
