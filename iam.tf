@@ -21,7 +21,7 @@ data "aws_iam_policy_document" "this_assume" {
   count = local.irsa_role_create && var.irsa_assume_role_enabled ? 1 : 0
 
   statement {
-    sid    = "AllowAssumegitlab-pipeline-exporterRole"
+    sid    = "AllowAssumeGitlabPipelineExporterRole"
     effect = "Allow"
     actions = [
       "sts:AssumeRole"
